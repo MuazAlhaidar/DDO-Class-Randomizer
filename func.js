@@ -149,9 +149,9 @@ function ddoRandomizer() {
 			class_choices[randInt(0, class_choices.length)] = needed;
 		}
 	}
-	ans_text = "<tr>" + "<th>" + race_choice + "</th>";
+	ans_text = "<tr>" + "<td>" + race_choice + "</td>";
 	for (let i = 0; i < lvl_opts; i++) {
-		ans_text += "<th>" + class_choices[i] + " " + level_choices[i] + "</th>";
+		ans_text += "<td>" + class_choices[i] + " " + level_choices[i] + "</td>";
 	}
 
 	ans_text += "</tr>";
@@ -171,5 +171,6 @@ function randInt(min, max) {
 	return Math.floor(Math.random() * (max - min)) + min;
 }
 function clearer() {
-	document.getElementById("rand_finished").innerHTML = "";
+	document.getElementById("rand_finished").innerHTML =
+		"<tr><th>Race</th><th>Class 1</th><th>Class 2</th><th>Class 3</th></tr>";
 }
