@@ -75,6 +75,8 @@ function getIconicClass(race) {
 			return "Rogue";
 		case "Morninglord":
 			return "Cleric";
+		case "Trailblazer":
+			return "Monk";
 		default:
 			return undefined;
 	}
