@@ -8,28 +8,28 @@ body {
 	margin: auto;
 }
 img {
-	width:  50px;
+	width: 50px;
 	height: 50px;
 }
 .grid-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 10px;
-  min-width: 4*70px;
-  max-width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px;
+	min-width: 4 * 70px;
+	max-width: 100%;
 }
 .notSelected {
 	opacity: 0.3;
 }
 .Free {
-  background-color: lightblue;
-  padding: 10px;
- }
-.Prem {
-  background-color: red;
-  padding: 10px;
+	background-color: lightblue;
+	padding: 10px;
 }
-.Prem#iconics {
+.Prem {
+	background-color: red;
+	padding: 10px;
+}
+.Prem#Iconics {
 	background-color: orange;
 }
 .Selected {
@@ -41,7 +41,7 @@ img {
 	justify-content: center;
 }
 .buttons {
-   display: flex;
+	display: flex;
 }
 .first {
 	margin-right: 10px;
@@ -56,7 +56,10 @@ img {
 #title {
 	font-size: 2em;
 }
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
 	text-align: center;
 }
 #bot-part {
@@ -66,7 +69,7 @@ h1, h2, h3, h4 {
 p {
 	margin-right: 4px;
 }
-#rand_finished{
+#rand_finished {
 	min-width: 50%;
 	max-width: 80%;
 	text-align: right;
