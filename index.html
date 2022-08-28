@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="background-color: black;">
+<html >
 	<head>
 		<meta charset="UTF-8" />
 		<!--<meta http-equiv='cache-control' content='no-cache'> 
@@ -11,7 +11,7 @@
 	</head>
 	<div>
 		<button class="first" id="reg-font" onclick="changeFont('reg-font')">Regular</button>
-		<button class="first" id="dylex-font" onclick="changeFont('dyslex-font')">Dyslexia</button>
+		<button class="first" id="dyslex-font" onclick="changeFont('dyslex-font')">Dyslexia</button>
 	</div>
 	<body onload="onLoadFunctions()">
 		<div id="title">
@@ -21,13 +21,13 @@
 			<h3>Easier toggle:</h4>
 			<div class="buttons">
 				<div>
-				<button class="first" onclick="changeSelPaid(1)">
+				<button class="first" name="bodybutton" id="regbutton" onclick="changeSelPaid(1)">
 					Use all classes and races.
 				</button>
-				<button class="mid" onclick="changeSelPaid(2)">
+				<button class="mid" name="bodybutton" id="regbutton" onclick="changeSelPaid(2)">
 					Don't use premium class and Race.
 				</button>
-				<button class="last" onclick="changeSelPaid(3)">
+				<button class="last" name="bodybutton" id="regbutton" onclick="changeSelPaid(3)">
 					Don't use Iconics.
 				</button>
 				</div>
@@ -179,7 +179,7 @@
 						<img src="./icons/Artificer.png" alt="Artificer" class="Selected" />
 						<img
 							src="./icons/FavoredSoul.png"
-							alt="FavoredSoul"
+							alt="Favored Soul"
 							class="Selected"
 						/>
 					</div>
@@ -204,9 +204,9 @@
 												onchange=checkNum("max_level")>
 												<th>
 													<div class="buttons" id="level-opts">
-														<button class="Selected">1</button>
-														<button class="Selected">2</button>
-														<button class="Selected">3</button>
+														<button class="Selected" name="bodybutton" id="regbutton" >1</button>
+														<button class="Selected" name="bodybutton" id="regbutton" >2</button>
+														<button class="Selected" name="bodybutton" id="regbutton" >3</button>
 													</div>
 												</th>
 											</p>
@@ -220,8 +220,8 @@
 			</table>
 
 			<div class="buttons">
-				<button class="first" onclick="ddoRandomizer()">RANDOMIZE!</button>
-				<button class="last" onclick="clearer()">Clear results.</button>
+				<button class="first" name="bodybutton" id="regbutton" onclick="ddoRandomizer()">RANDOMIZE!</button>
+				<button class="last" name="bodybutton" id="regbutton" onclick="clearer()">Clear results.</button>
 			</div>
 			<h3>Results here.</h3>
 		</div>

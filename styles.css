@@ -1,41 +1,41 @@
 @font-face {
 	font-family: Lexend;
-	/*
+
 	src: url(font/Lexend-Regular.ttf);
-	Changed to adhere to Github.io file structure
+	/*Changed to adhere to Github.io file structure
 	*/
-	src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf);
+	/* src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf); */
 }
 @font-face {
 	font-family: Dyslexic;
-	/*
+
 	src: url(font/OpenDyslexic-Regular.otf);
 	/*Changed to adhere to Github.io file structure
 	*/
-	src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf);
+	/* src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf); */
 }
 #reg-font {
 	font-family: Lexend;
 	padding-top: 14px;
 	padding-bottom: 15px;
 }
-#dylex-font {
+#dyslex-font {
 	font-family: Dyslexic;
 }
 body {
 	max-width: 900px;
-	margin: auto;
 	width: 100%;
 	overflow-x: hidden;
 	color: #ccb554;
+	background-color: black;
 	font-family: Lexend;
 }
 body.dyslex {
 	max-width: 900px;
-	margin: auto;
 	width: 100%;
 	overflow-x: hidden;
 	color: #ccb554;
+	background-color: black;
 	font-family: Dyslexic;
 }
 * {
@@ -80,12 +80,10 @@ img {
 }
 .buttons#level-opts {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: auto;
 }
-.first,
-.mid,
-.last {
+button {
 	margin-right: 10px;
 	background-color: transparent;
 	border: 1px solid gray;
@@ -93,10 +91,21 @@ img {
 	font-size: medium;
 	color: white;
 	padding: 8px;
+	margin: inherit;
 }
-.first:hover,
-.mid:hover,
-.last:hover {
+button#dysbutton {
+	margin-right: 10px;
+	background-color: transparent;
+	border: 1px solid gray;
+	border-radius: 3px;
+	font-size: medium;
+	color: white;
+	padding: 8px;
+	margin: inherit;
+	font-family: Dyslexic;
+}
+button:hover,
+button#dysbutton:hover {
 	background-color: #272b33;
 }
 #title {

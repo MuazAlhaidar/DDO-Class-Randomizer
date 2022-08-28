@@ -9,8 +9,18 @@ function onLoadFunctions() {
 }
 function changeFont(fontChoice) {
 	var body = document.body;
-	if (fontChoice === "reg-font") body.className = "";
-	else if (fontChoice === "dyslex-font") body.className = "dyslex";
+	var button = document.getElementsByName("bodybutton");
+	if (fontChoice === "reg-font") {
+		body.className = "";
+		button.forEach((element) => {
+			element.id = "regbutton";
+		});
+	} else if (fontChoice === "dyslex-font") {
+		body.className = "dyslex";
+		button.forEach((element) => {
+			element.id = "dysbutton";
+		});
+	}
 }
 function changeSelPaid(sel) {
 	if (sel == 1) {
