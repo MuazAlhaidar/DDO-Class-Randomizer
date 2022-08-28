@@ -65,10 +65,6 @@ function getRaces() {
 	for (let i = 0; i < aux2.length; i++) {
 		aux3.push(aux2[i].alt);
 	}
-	console.log("Aux");
-	console.log(aux);
-	console.log("Aux3");
-	console.log(aux3);
 	return aux3;
 }
 function getIconics() {
