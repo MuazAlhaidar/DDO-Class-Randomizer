@@ -35,14 +35,18 @@ function changeSelPaid(sel) {
 		for (let i = 0; i < aux1.length; i++) {
 			aux2 = aux1[i].children;
 			for (let j = 0; j < aux2.length; j++) {
-				aux2[j].className = "notSelected";
+				if (aux2[j].className === "Selected") {
+					aux2[j].className = "notSelected";
+				}
 			}
 		}
 	}
 	if (sel == 3) {
 		aux2 = document.getElementById("Iconics").children;
 		for (let j = 0; j < aux2.length; j++) {
-			aux2[j].className = "notSelected";
+			if (aux2[j].className === "Selected") {
+				aux2[j].className = "notSelected";
+			}
 		}
 	}
 	document.getElementById("useHearth").className = "";
@@ -61,6 +65,10 @@ function getRaces() {
 	for (let i = 0; i < aux2.length; i++) {
 		aux3.push(aux2[i].alt);
 	}
+	console.log("Aux");
+	console.log(aux);
+	console.log("Aux3");
+	console.log(aux3);
 	return aux3;
 }
 function getIconics() {
