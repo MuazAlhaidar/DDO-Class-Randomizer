@@ -1,18 +1,18 @@
 @font-face {
 	font-family: Lexend;
-
+	/*
 	src: url(font/Lexend-Regular.ttf);
-	/*Changed to adhere to Github.io file structure
+	Changed to adhere to Github.io file structure
 	*/
-	/* src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf); */
+	src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf);
 }
 @font-face {
 	font-family: Dyslexic;
-
+	/*
 	src: url(font/OpenDyslexic-Regular.otf);
 	/*Changed to adhere to Github.io file structure
 	*/
-	/* src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf); */
+	src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf);
 }
 #reg-font {
 	font-family: Lexend;
