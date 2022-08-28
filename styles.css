@@ -1,8 +1,36 @@
+@font-face {
+	font-family: Lexend;
+	src: url(/font/Lexend-Regular.ttf);
+}
+@font-face {
+	font-family: Dyslexic;
+	src: url(/font/OpenDyslexic-Regular.otf);
+}
+#reg-font {
+	font-family: Lexend;
+	padding-top: 14px;
+	padding-bottom: 15px;
+}
+#dylex-font {
+	font-family: Dyslexic;
+}
 body {
 	max-width: 900px;
 	margin: auto;
 	width: 100%;
 	overflow-x: hidden;
+	background-color: black;
+	color: #ccb554;
+	font-family: Lexend;
+}
+body.dyslex {
+	max-width: 900px;
+	margin: auto;
+	width: 100%;
+	overflow-x: hidden;
+	background-color: black;
+	color: #ccb554;
+	font-family: Dyslexic;
 }
 * {
 	margin: auto;
@@ -41,17 +69,29 @@ img {
 	justify-content: center;
 }
 .buttons {
+	width: fit-content;
+	padding: 10px;
+}
+.buttons#level-opts {
 	display: flex;
+	justify-content: space-between;
+	width: auto;
 }
-.first {
-	margin-right: 10px;
-}
-.mid {
-	margin-right: 10px;
-	margin-left: 10px;
-}
+.first,
+.mid,
 .last {
-	margin-left: 10px;
+	margin-right: 10px;
+	background-color: transparent;
+	border: 1px solid gray;
+	border-radius: 3px;
+	font-size: medium;
+	color: white;
+	padding: 8px;
+}
+.first:hover,
+.mid:hover,
+.last:hover {
+	background-color: #272b33;
 }
 #title {
 	font-size: 2em;
@@ -70,7 +110,12 @@ p {
 	margin-right: 4px;
 }
 #rand_finished {
-	min-width: 50%;
-	max-width: 80%;
+	min-width: 70%;
+	max-width: 70%;
 	text-align: right;
+	border: 1px solid #a18a68;
+}
+.table_top {
+	border: 2px dotted #a18a68;
+	min-width: 25%;
 }
