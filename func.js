@@ -7,6 +7,11 @@ function onLoadFunctions() {
 		aux[i].id = "toggle" + count;
 	}
 }
+function changeFont(fontChoice) {
+	var body = document.body;
+	if (fontChoice === "reg-font") body.className = "";
+	else if (fontChoice === "dyslex-font") body.className = "dyslex";
+}
 function changeSelPaid(sel) {
 	if (sel == 1) {
 		aux = document.getElementsByClassName("notSelected");
@@ -174,5 +179,5 @@ function randInt(min, max) {
 }
 function clearer() {
 	document.getElementById("rand_finished").innerHTML =
-		"<tr><th>Race</th><th>Class 1</th><th>Class 2</th><th>Class 3</th></tr>";
+		'<tr><th class="table_top">Race</th><th class="table_top">Class 1</th><th class="table_top">Class 2</th><th class="table_top">Class 3</th></tr>';
 }
