@@ -10,7 +10,7 @@
 	font-family: Dyslexic;
 	/*
 	src: url(font/OpenDyslexic-Regular.otf);
-	Changed to adhere to Github.io file structure
+	/*Changed to adhere to Github.io file structure
 	*/
 	src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf);
 }
@@ -27,7 +27,6 @@ body {
 	margin: auto;
 	width: 100%;
 	overflow-x: hidden;
-	background-color: black;
 	color: #ccb554;
 	font-family: Lexend;
 }
@@ -36,7 +35,6 @@ body.dyslex {
 	margin: auto;
 	width: 100%;
 	overflow-x: hidden;
-	background-color: black;
 	color: #ccb554;
 	font-family: Dyslexic;
 }
@@ -121,9 +119,9 @@ p {
 	min-width: 70%;
 	max-width: 70%;
 	text-align: right;
-	border: 1px solid #a18a68;
+	border: 1px solid #ccb554;
 }
 .table_top {
-	border: 2px dotted #a18a68;
+	border: 2px dotted #ccb554;
 	min-width: 25%;
 }
