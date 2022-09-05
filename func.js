@@ -131,13 +131,7 @@ function sel_class(class_list, number) {
 	for (let i = 0; i < number; i++) {
 		aux2 = randInt(0, class_list.length);
 		aux = aux.concat(class_list[aux2]);
-		console.log("Aux List: ");
-		console.log(aux);
-		console.log("Class List Before: ");
-		console.log(class_list);
 		class_list = get_new_class_list(aux, class_list);
-		console.log("Class List After: ");
-		console.log(class_list);
 	}
 	return aux;
 }
