@@ -79,23 +79,23 @@ function getIconics() {
 function getIconicClass(race) {
 	switch (race) {
 		case "Scourge":
-			return "Ranger";
+			return { key: "Ranger", value: 6 };
 		case "Bladeforged":
-			return "Paladin";
+			return { key: "Paladin", value: 5 };
 		case "Deep Gnome":
-			return "Wizard";
+			return { key: "Wizard", value: 9 };
 		case "PDK":
-			return "Fighter";
+			return { key: "Fighter", value: 4 };
 		case "Razorclaw":
-			return "Barbarian";
+			return { key: "Barbarian", value: 1 };
 		case "Scoundrel":
-			return "Bard";
+			return { key: "Bard", value: 2 };
 		case "Shadar-kai":
-			return "Rogue";
+			return { key: "Rogue", value: 7 };
 		case "Morninglord":
-			return "Cleric";
+			return { key: "Cleric", value: 3 };
 		case "Trailblazer":
-			return "Monk";
+			return { key: "Monk", value: 11 };
 		default:
 			return undefined;
 	}
@@ -105,7 +105,12 @@ function getClasses() {
 	aux2 = aux.getElementsByClassName("Selected");
 	aux3 = [];
 	for (let i = 0; i < aux2.length; i++) {
-		aux3.push(aux2[i].alt);
+		aux3.push({
+			key: aux2[i].alt.substring(0, aux2[i].alt.length - 2),
+			value: parseInt(
+				aux2[i].alt.substring(aux2[i].alt.length - 2, aux2[i].alt.length)
+			),
+		});
 	}
 	return aux3;
 }
@@ -126,11 +131,27 @@ function sel_class(class_list, number) {
 	for (let i = 0; i < number; i++) {
 		aux2 = randInt(0, class_list.length);
 		aux = aux.concat(class_list[aux2]);
-		class_list = class_list.filter(function (ele) {
-			return ele != class_list[aux2];
-		});
+		console.log("Aux List: ");
+		console.log(aux);
+		console.log("Class List Before: ");
+		console.log(class_list);
+		class_list = get_new_class_list(aux, class_list);
+		console.log("Class List After: ");
+		console.log(class_list);
 	}
 	return aux;
+}
+function get_new_class_list(randomized_choices, class_list) {
+	class_list = class_list.filter(function (ele) {
+		let result = true;
+		randomized_choices.forEach((element) => {
+			if (element.value === ele.value) {
+				result = false;
+			}
+		});
+		return result;
+	});
+	return class_list;
 }
 function sel_levels(number) {
 	min_level = Math.abs(document.getElementById("min_level").value);
@@ -167,12 +188,21 @@ function ddoRandomizer() {
 	) {
 		needed = getIconicClass(race_choice);
 		if (class_choices.indexOf(needed) == -1) {
-			class_choices[randInt(0, class_choices.length)] = needed;
+			index = -1;
+			for (let x = 0; x < class_choices.length; x++) {
+				if (class_choices[x].value === needed.value) {
+					index = x;
+				}
+			}
+
+			if (index != -1) class_choices[index] = needed;
+			else class_choices[randInt(0, class_choices.length)] = needed;
 		}
 	}
 	ans_text = "<tr>" + "<td>" + race_choice + "</td>";
 	for (let i = 0; i < lvl_opts; i++) {
-		ans_text += "<td>" + class_choices[i] + " " + level_choices[i] + "</td>";
+		ans_text +=
+			"<td>" + class_choices[i].key + " " + level_choices[i] + "</td>";
 	}
 
 	ans_text += "</tr>";
