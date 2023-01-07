@@ -7,20 +7,20 @@
 	src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf);
 }
 @font-face {
-	font-family: Dyslexic;
+	font-family: Village;
 	/*
-	src: url(font/OpenDyslexic-Regular.otf);
+	src: url(font/Village.ttf);
 	/*Changed to adhere to Github.io file structure
 	*/
-	src: url(../DDO-Class-Randomizer/font/OpenDyslexic-Regular.otf);
+	src: url(../DDO-Class-Randomizer/font/Village.ttf);
 }
 #reg-font {
 	font-family: Lexend;
 	padding-top: 14px;
 	padding-bottom: 15px;
 }
-#dyslex-font {
-	font-family: Dyslexic;
+#village-font {
+	font-family: Village;
 }
 body {
 	max-width: 900px;
@@ -30,13 +30,13 @@ body {
 	background-color: black;
 	font-family: Lexend;
 }
-body.dyslex {
+body.village {
 	max-width: 900px;
 	width: 100%;
 	overflow-x: hidden;
 	color: #ccb554;
 	background-color: black;
-	font-family: Dyslexic;
+	font-family: Village;
 }
 * {
 	margin: auto;
@@ -93,7 +93,7 @@ button {
 	padding: 8px;
 	margin: inherit;
 }
-button#dysbutton {
+button#villbutton {
 	margin-right: 10px;
 	background-color: transparent;
 	border: 1px solid gray;
@@ -102,10 +102,10 @@ button#dysbutton {
 	color: white;
 	padding: 8px;
 	margin: inherit;
-	font-family: Dyslexic;
+	font-family: Village;
 }
 button:hover,
-button#dysbutton:hover {
+button#villbutton:hover {
 	background-color: #272b33;
 }
 #title {

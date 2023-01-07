@@ -15,10 +15,10 @@ function changeFont(fontChoice) {
 		button.forEach((element) => {
 			element.id = "regbutton";
 		});
-	} else if (fontChoice === "dyslex-font") {
-		body.className = "dyslex";
+	} else if (fontChoice === "village-font") {
+		body.className = "village";
 		button.forEach((element) => {
-			element.id = "dysbutton";
+			element.id = "villbutton";
 		});
 	}
 }
