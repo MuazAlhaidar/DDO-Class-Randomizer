@@ -126,9 +126,13 @@ function getLevelOptions() {
 	}
 	return aux3;
 }
-function sel_class(class_list, number) {
+function sel_class(class_list, number, isTheRaceAnIconic, iconicClass) {
 	aux = [];
-	for (let i = 0; i < number; i++) {
+	if (isTheRaceAnIconic) {
+		aux.push(iconicClass);
+		class_list = get_new_class_list(aux, class_list);
+	}
+	for (let i = 0; i < number - isTheRaceAnIconic; i++) {
 		aux2 = randInt(0, class_list.length);
 		aux = aux.concat(class_list[aux2]);
 		class_list = get_new_class_list(aux, class_list);
@@ -136,6 +140,55 @@ function sel_class(class_list, number) {
 	return aux;
 }
 function get_new_class_list(randomized_choices, class_list) {
+	// Removing classes from class list due to alignment restrictions
+	// paladins cant multiclass with
+	// bards barbarians and druids
+
+	// monks cant multiclass with
+	// bards and barbarians
+
+	const xorClassesDueToAlignment = (class_list, xorArray) => {
+		class_list = class_list.filter(function (element) {
+			return !(element.value in xorArray);
+		});
+
+		return class_list;
+	};
+
+	randomized_choices.forEach((element) => {
+		switch (element.value) {
+			// If a Paladin
+			case 5:
+				class_list = xorClassesDueToAlignment(class_list, {
+					1: "Barbarian",
+					2: "Bard",
+					10: "Druid",
+				});
+				break;
+			// If a Monk
+			case 11:
+				class_list = xorClassesDueToAlignment(class_list, {
+					1: "Barbarian",
+					2: "Bard",
+				});
+				break;
+			// If a Barbarian or Bard
+			case 1:
+			case 2:
+				class_list = xorClassesDueToAlignment(class_list, {
+					5: "Paladin",
+					11: "Monk",
+				});
+				break;
+			// If a Druid
+			case 10:
+				class_list = xorClassesDueToAlignment(class_list, { 5: "Paladin" });
+				break;
+
+			default:
+				break;
+		}
+	});
 	class_list = class_list.filter(function (ele) {
 		let result = true;
 		randomized_choices.forEach((element) => {
@@ -173,7 +226,7 @@ function ddoRandomizer() {
 	class_list = getClasses();
 	level_list = getLevelOptions();
 	lvl_opts = level_list[randInt(0, level_list.length)];
-	class_choices = sel_class(class_list, lvl_opts);
+	class_choices = null;
 	level_choices = sel_levels(lvl_opts);
 	race_choice = race_list[randInt(0, race_list.length)];
 	if (
@@ -181,17 +234,9 @@ function ddoRandomizer() {
 		!document.getElementById("useHearth").checked
 	) {
 		needed = getIconicClass(race_choice);
-		if (class_choices.indexOf(needed) == -1) {
-			index = -1;
-			for (let x = 0; x < class_choices.length; x++) {
-				if (class_choices[x].value === needed.value) {
-					index = x;
-				}
-			}
-
-			if (index != -1) class_choices[index] = needed;
-			else class_choices[randInt(0, class_choices.length)] = needed;
-		}
+		class_choices = sel_class(class_list, lvl_opts, true, needed);
+	} else {
+		class_choices = sel_class(class_list, lvl_opts, false, null);
 	}
 	ans_text = "<tr>" + "<td>" + race_choice + "</td>";
 	for (let i = 0; i < lvl_opts; i++) {
