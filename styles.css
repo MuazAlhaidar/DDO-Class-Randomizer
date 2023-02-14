@@ -124,8 +124,8 @@ p {
 	margin-right: 4px;
 }
 #rand_finished {
-	min-width: 70%;
-	max-width: 70%;
+	min-width: 80%;
+	max-width: 80%;
 	text-align: right;
 	border: 1px solid #ccb554;
 }
