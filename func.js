@@ -227,9 +227,6 @@ function get_new_class_list(randomized_choices, class_list) {
     return result;
   });
 
-  console.log(randomized_choices);
-  console.log(class_list);
-
   return class_list;
 }
 function sel_levels(number) {
