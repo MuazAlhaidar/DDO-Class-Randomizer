@@ -152,9 +152,16 @@ function get_new_class_list(randomized_choices, class_list) {
   const xorClassesDueToAlignment = (class_list, xorArray) => {
     class_list = class_list.filter(function (element) {
       // remove the class from the class list so long as
-      // it's id is in the xorArray and has the same class name
-      // this is to distinguish archetypes from base classes
-      return !(element.key in xorArray);
+      // it's name is in the xor class name array
+      isAllowed = true;
+      xorArray.forEach((xorElement) => {
+        if (element.key === xorElement) {
+          isAllowed = false;
+          return;
+        }
+      });
+      return isAllowed;
+      //  return !(element.key in xorArray);
     });
 
     return class_list;
@@ -167,6 +174,7 @@ function get_new_class_list(randomized_choices, class_list) {
         class_list = xorClassesDueToAlignment(class_list, [
           "Barbarian",
           "Bard",
+          "Storm Singer",
           "Druid",
           "Blightcaster",
           "Acolyte Of The Skin",
@@ -177,6 +185,7 @@ function get_new_class_list(randomized_choices, class_list) {
         class_list = xorClassesDueToAlignment(class_list, [
           "Barbarian",
           "Bard",
+          "Storm Singer",
         ]);
         break;
       // If a Barbarian or Bard
@@ -188,19 +197,20 @@ function get_new_class_list(randomized_choices, class_list) {
           "Monk",
         ]);
         break;
-      // If a Druid or Acolyte of the Skin
+      // If a Druid or Acolyte Of The Skin
       case 10:
       case 12:
-        class_list = xorClassesDueToAlignment(class_list, [
-          "Paladin",
-          "Sacred Fist",
-        ]);
-        if (element.key === "Acolyte Of The Skin") {
+        if (element.key == "Acolyte Of The Skin") {
           class_list = xorClassesDueToAlignment(class_list, [
             "Paladin",
             "Sacred Fist",
           ]);
+          break;
         }
+        class_list = xorClassesDueToAlignment(class_list, [
+          "Paladin",
+          "Sacred Fist",
+        ]);
         break;
 
       default:
@@ -216,6 +226,7 @@ function get_new_class_list(randomized_choices, class_list) {
     });
     return result;
   });
+
   return class_list;
 }
 function sel_levels(number) {
