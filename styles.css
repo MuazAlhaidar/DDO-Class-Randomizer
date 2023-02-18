@@ -1,135 +1,135 @@
 @font-face {
-	font-family: Lexend;
-	/*
+  font-family: Lexend;
+  /*
 	src: url(font/Lexend-Regular.ttf);
 	Changed to adhere to Github.io file structure
 	*/
-	src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf);
+  src: url(../DDO-Class-Randomizer/font/Lexend-Regular.ttf);
 }
 @font-face {
-	font-family: Village;
-	/*
+  font-family: Village;
+  /*
 	src: url(font/Village.ttf);
 	/*Changed to adhere to Github.io file structure
 	*/
-	src: url(../DDO-Class-Randomizer/font/Village.ttf);
+  src: url(../DDO-Class-Randomizer/font/Village.ttf);
 }
 #reg-font {
-	font-family: Lexend;
-	padding-top: 9px;
+  font-family: Lexend;
+  padding-top: 9px;
 }
 #village-font {
-	font-family: Village;
+  font-family: Village;
 }
 body {
-	max-width: 900px;
-	width: 100%;
-	overflow-x: hidden;
-	color: #ccb554;
-	background-color: black;
-	font-family: Lexend;
+  max-width: 900px;
+  width: 100%;
+  overflow-x: hidden;
+  color: #ccb554;
+  background-color: black;
+  font-family: Lexend;
 }
 body.village {
-	max-width: 900px;
-	width: 100%;
-	overflow-x: hidden;
-	color: #ccb554;
-	background-color: black;
-	font-family: Village;
+  max-width: 900px;
+  width: 100%;
+  overflow-x: hidden;
+  color: #ccb554;
+  background-color: black;
+  font-family: Village;
 }
 * {
-	margin: auto;
+  margin: auto;
 }
 img {
-	width: 50px;
-	height: 50px;
+  width: 50px;
+  height: 50px;
 }
 .grid-container {
-	display: flex;
-	flex-wrap: wrap;
-	padding: 10px;
-	min-width: 4 * 70px;
-	max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  min-width: 4 * 70px;
+  max-width: 100%;
 }
 .notSelected {
-	opacity: 0.3;
+  opacity: 0.3;
 }
 .Free {
-	background-color: lightblue;
-	padding: 10px;
+  background-color: lightblue;
+  padding: 10px;
 }
 .Prem {
-	background-color: #fc7b7b;
-	padding: 10px;
+  background-color: #fc7b7b;
+  padding: 10px;
 }
 .Prem#Iconics {
-	background-color: orange;
+  background-color: orange;
 }
 .Selected {
-	opacity: 100%;
+  opacity: 100%;
 }
 .block {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .buttons {
-	width: fit-content;
-	padding: 10px;
+  width: fit-content;
+  padding: 10px;
 }
 .buttons#level-opts {
-	display: flex;
-	justify-content: space-around;
-	width: auto;
+  display: flex;
+  justify-content: space-around;
+  width: auto;
 }
 button {
-	margin-right: 10px;
-	background-color: transparent;
-	border: 1px solid gray;
-	border-radius: 3px;
-	font-size: medium;
-	color: white;
-	padding: 8px;
-	margin: inherit;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: medium;
+  color: white;
+  padding: 8px;
+  margin: inherit;
 }
 button#villbutton {
-	margin-right: 10px;
-	background-color: transparent;
-	border: 1px solid gray;
-	border-radius: 3px;
-	font-size: medium;
-	color: white;
-	padding: 8px;
-	margin: inherit;
-	font-family: Village;
+  margin-right: 10px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 3px;
+  font-size: medium;
+  color: white;
+  padding: 8px;
+  margin: inherit;
+  font-family: Village;
 }
 button:hover,
 button#villbutton:hover {
-	background-color: #272b33;
+  background-color: #272b33;
 }
 #title {
-	font-size: 2em;
+  font-size: 2em;
 }
 h1,
 h2,
 h3,
 h4 {
-	text-align: center;
+  text-align: center;
 }
 #bot-part {
-	position: relative;
-	bottom: 0;
+  position: relative;
+  bottom: 0;
 }
 p {
-	margin-right: 4px;
+  margin-right: 4px;
 }
 #rand_finished {
-	min-width: 80%;
-	max-width: 80%;
-	text-align: right;
-	border: 1px solid #ccb554;
+  min-width: 80%;
+  max-width: 80%;
+  text-align: right;
+  border: 1px solid #ccb554;
 }
 .table_top {
-	border: 2px dotted #ccb554;
-	min-width: 25%;
+  border: 2px dotted #ccb554;
+  min-width: 25%;
 }
