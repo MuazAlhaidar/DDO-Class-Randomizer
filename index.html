@@ -1,254 +1,355 @@
 <!DOCTYPE html>
-<html >
-	<head>
-		<meta charset="UTF-8" />
-		<!--<meta http-equiv='cache-control' content='no-cache'> 
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <!--<meta http-equiv='cache-control' content='no-cache'> 
 <meta http-equiv='expires' content='0'> 
 <meta http-equiv='pragma' content='no-cache'>-->
-		<title>DDO Class Randomizer</title>
-		<link rel="stylesheet" href="styles.css" />
-		<script async src="func.js"></script>
-	</head>
-	<div>
-		<button class="first" id="reg-font" onclick="changeFont('reg-font')">Regular</button>
-		<button class="first" id="village-font" onclick="changeFont('village-font')">Village</button>
-	</div>
-	<body onload="onLoadFunctions()">
-		<div id="title">
-			<h1>DDO Class Randomizer</h1>
-		</div>
-		<div id="top-part">
-			<h3>Easier toggle:</h4>
-			<div class="buttons">
-				<div>
-				<button class="first" name="bodybutton" id="regbutton" onclick="changeSelPaid(1)">
-					Use all classes and races.
-				</button>
-				<button class="mid" name="bodybutton" id="regbutton" onclick="changeSelPaid(2)">
-					Don't use premium class and Race.
-				</button>
-				<button class="last" name="bodybutton" id="regbutton" onclick="changeSelPaid(3)">
-					Don't use Iconics.
-				</button>
-				</div>
-			</div>
-			<h3>Race selector</h3>
-			<div id="race-sel" class="grid-container">
-				<div class="block">
-					<div class="Free">
-						<img
-							src="./icons/Dwarf_race_icon.png"
-							alt="Dwarf"
-							class="Selected"
-						/>
-						<img src="./icons/Elf_race_icon.png" alt="Elf" class="Selected" />
-						<img
-							src="./icons/Halfling_race_icon.png"
-							alt="Halfling"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Human_race_icon.png"
-							alt="Human"
-							class="Selected"
-						/>
-						<img src="./icons/Drow_race_icon.png" alt="Drow" class="Selected" />
-						<img
-							src="./icons/Gnome_race_icon.png"
-							alt="Gnome"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Half-Elf_race_icon.png"
-							alt="Half-Elf"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Half-Orc_race_icon.png"
-							alt="Half-Orc"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Tiefling_race_icon.png"
-							alt="Tiefling"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Wood_Elf_race_icon.png"
-							alt="Wood-Elf"
-							class="Selected"
-						/>
-					</div>
-					<div class="Prem">
-						<img
-							src="./icons/Aasimar_race_icon.png"
-							alt="Aasimar"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Dragonborn_race_icon.png"
-							alt="Dragonborn"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Shifter_race_icon.png"
-							alt="Shifter"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Warforged_race_icon.png"
-							alt="Warforged"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Tabaxi_race_icon.png"
-							alt="Tabaxi"
-							class="Selected"
-						/>
-					</div>
-				</div>
-				<div class="block">
-					<div class="Prem" id="Iconics">
-						<img
-							src="./icons/Scourge_race_icon.png"
-							alt="Scourge"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Bladeforged_race_icon.png"
-							alt="Bladeforged"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Deep Gnome_race_icon.png"
-							alt="Deep Gnome"
-							class="Selected"
-						/>
-						<img src="./icons/PDK_race_icon.png" alt="PDK" class="Selected" />
-						<img
-							src="./icons/Razorclaw_race_icon.png"
-							alt="Razorclaw"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Scoundrel_race_icon.png"
-							alt="Scoundrel"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Shadar-kai_race_icon.png"
-							alt="Shadar-kai"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Morninglord_race_icon.png"
-							alt="Morninglord"
-							class="Selected"
-						/>
-						<img
-							src="./icons/Trailblazer_race_icon.png"
-							alt="Trailblazer"
-							class="Selected"
-						/>
-						<input type="Checkbox" value="useHearth" id="useHearth" />
-						<label for="useHearth" style="color: black">
-							Ignore forced level.
-						</label>
-					</div>
-				</div>
-			</div>
-			<h3>Class selector</h3>
-			<div id="class-sel" class="grid-container">
-				<div class="block">
-					<div class="Free">
-						<img src="./icons/Barbarian.png" alt="Barbarian01" class="Selected" />
-						<img src="./icons/Bard.png" alt="Bard02" class="Selected" />
-						<img src="./icons/StormSinger.png" alt="Storm Singer02" class="Selected" />
-						<img src="./icons/Cleric.png" alt="Cleric03" class="Selected" />
-						<img src="./icons/DarkApostate.png" alt="Dark Apostate03" class="Selected" />
-						<img src="./icons/Fighter.png" alt="Fighter04" class="Selected" />
-						<img src="./icons/Paladin.png" alt="Paladin05" class="Selected" />
-						<img src="./icons/SacredFist.png" alt="Sacred Fist05" class="Selected" />
-						<img src="./icons/Ranger.png" alt="Ranger06" class="Selected" />
-						<img src="./icons/DarkHunter.png" alt="Dark Hunter06" class="Selected" />
-						<img src="./icons/Rogue.png" alt="Rogue07" class="Selected" />
-						<img src="./icons/Sorcerer.png" alt="Sorcerer08" class="Selected" />
-						<img src="./icons/Wizard.png" alt="Wizard09" class="Selected" />
-						<img src="./icons/Druid.png" alt="Druid10" class="Selected" />
-						<img src="./icons/BlightCaster.png" alt="Blight Caster10" class="Selected" />
-						<img src="./icons/Monk.png" alt="Monk11" class="Selected" />
-						<img src="./icons/Warlock.png" alt="Warlock12" class="Selected" />
-						<img src="./icons/AcolyteOfTheSkin.png" alt="Acolyte Of The Skin12" class="Selected" />
-					</div>
-					<div class="Prem">
-						<img src="./icons/Alchemist.png" alt="Alchemist13" class="Selected" />
-						<img src="./icons/Artificer.png" alt="Artificer14" class="Selected" />
-						<img
-							src="./icons/FavoredSoul.png"
-							alt="Favored Soul15"
-							class="Selected"
-						/>
-					</div>
-				</div>
-			</div>
-			<table>
-				<tr>
-					<th>
-						<p>
-							Select the main class min. level (7-20): <input type="text"
-							id="min_level" name="min_level" value="7"
-							onchange=checkNum("min_level")>
-							<th>
-								<p>Select the number of classes enabled</p>
-								<p>
-									It's the first check, so equal chance for each!
-									<tr>
-										<th>
-											<p>
-												Select the main class max. level (7-20): <input
-												type="text" id="max_level" name="max_level" value="20"
-												onchange=checkNum("max_level")>
-												<th>
-													<div class="buttons" id="level-opts">
-														<button class="Selected" name="bodybutton" id="regbutton" >1</button>
-														<button class="Selected" name="bodybutton" id="regbutton" >2</button>
-														<button class="Selected" name="bodybutton" id="regbutton" >3</button>
-													</div>
-												</th>
-											</p>
-										</th>
-									</tr>
-								</p>
-							</th>
-						</p>
-					</th>
-				</tr>
-			</table>
+    <title>DDO Class Randomizer</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="func.js"></script>
+  </head>
+  <div>
+    <button class="first" id="reg-font" onclick="changeFont('reg-font')">
+      Regular
+    </button>
+    <button
+      class="first"
+      id="village-font"
+      onclick="changeFont('village-font')"
+    >
+      Village
+    </button>
+  </div>
+  <body onload="onLoadFunctions()">
+    <div id="title">
+      <h1>DDO Class Randomizer</h1>
+    </div>
+    <div id="top-part">
+      <h3>Easier toggle:</h3>
+      <div class="buttons">
+        <div>
+          <button
+            class="first"
+            name="bodybutton"
+            id="regbutton"
+            onclick="changeSelPaid(1)"
+          >
+            Use all classes and races.
+          </button>
+          <button
+            class="mid"
+            name="bodybutton"
+            id="regbutton"
+            onclick="changeSelPaid(2)"
+          >
+            Don't use premium class and Race.
+          </button>
+          <button
+            class="last"
+            name="bodybutton"
+            id="regbutton"
+            onclick="changeSelPaid(3)"
+          >
+            Don't use Iconics.
+          </button>
+        </div>
+      </div>
+      <h3>Race selector</h3>
+      <div id="race-sel" class="grid-container">
+        <div class="block">
+          <div class="Free">
+            <img
+              src="./icons/Dwarf_race_icon.png"
+              alt="Dwarf"
+              class="Selected"
+            />
+            <img src="./icons/Elf_race_icon.png" alt="Elf" class="Selected" />
+            <img
+              src="./icons/Halfling_race_icon.png"
+              alt="Halfling"
+              class="Selected"
+            />
+            <img
+              src="./icons/Human_race_icon.png"
+              alt="Human"
+              class="Selected"
+            />
+            <img src="./icons/Drow_race_icon.png" alt="Drow" class="Selected" />
+            <img
+              src="./icons/Gnome_race_icon.png"
+              alt="Gnome"
+              class="Selected"
+            />
+            <img
+              src="./icons/Half-Elf_race_icon.png"
+              alt="Half-Elf"
+              class="Selected"
+            />
+            <img
+              src="./icons/Half-Orc_race_icon.png"
+              alt="Half-Orc"
+              class="Selected"
+            />
+            <img
+              src="./icons/Tiefling_race_icon.png"
+              alt="Tiefling"
+              class="Selected"
+            />
+            <img
+              src="./icons/Wood_Elf_race_icon.png"
+              alt="Wood-Elf"
+              class="Selected"
+            />
+          </div>
+          <div class="Prem">
+            <img
+              src="./icons/Aasimar_race_icon.png"
+              alt="Aasimar"
+              class="Selected"
+            />
+            <img
+              src="./icons/Dragonborn_race_icon.png"
+              alt="Dragonborn"
+              class="Selected"
+            />
+            <img
+              src="./icons/Shifter_race_icon.png"
+              alt="Shifter"
+              class="Selected"
+            />
+            <img
+              src="./icons/Warforged_race_icon.png"
+              alt="Warforged"
+              class="Selected"
+            />
+            <img
+              src="./icons/Tabaxi_race_icon.png"
+              alt="Tabaxi"
+              class="Selected"
+            />
+          </div>
+        </div>
+        <div class="block">
+          <div class="Prem" id="Iconics">
+            <img
+              src="./icons/Scourge_race_icon.png"
+              alt="Scourge"
+              class="Selected"
+            />
+            <img
+              src="./icons/Bladeforged_race_icon.png"
+              alt="Bladeforged"
+              class="Selected"
+            />
+            <img
+              src="./icons/Deep Gnome_race_icon.png"
+              alt="Deep Gnome"
+              class="Selected"
+            />
+            <img src="./icons/PDK_race_icon.png" alt="PDK" class="Selected" />
+            <img
+              src="./icons/Razorclaw_race_icon.png"
+              alt="Razorclaw"
+              class="Selected"
+            />
+            <img
+              src="./icons/Scoundrel_race_icon.png"
+              alt="Scoundrel"
+              class="Selected"
+            />
+            <img
+              src="./icons/Shadar-kai_race_icon.png"
+              alt="Shadar-kai"
+              class="Selected"
+            />
+            <img
+              src="./icons/Morninglord_race_icon.png"
+              alt="Morninglord"
+              class="Selected"
+            />
+            <img
+              src="./icons/Trailblazer_race_icon.png"
+              alt="Trailblazer"
+              class="Selected"
+            />
+            <input type="Checkbox" value="useHearth" id="useHearth" />
+            <label for="useHearth" style="color: black">
+              Ignore forced level.
+            </label>
+          </div>
+        </div>
+      </div>
+      <h3>Class selector</h3>
+      <div id="class-sel" class="grid-container">
+        <div class="block">
+          <div class="Free">
+            <img
+              src="./icons/Barbarian.png"
+              alt="Barbarian01"
+              class="Selected"
+            />
+            <img src="./icons/Bard.png" alt="Bard02" class="Selected" />
+            <img
+              src="./icons/StormSinger.png"
+              alt="Storm Singer02"
+              class="Selected"
+            />
+            <img src="./icons/Cleric.png" alt="Cleric03" class="Selected" />
+            <img
+              src="./icons/DarkApostate.png"
+              alt="Dark Apostate03"
+              class="Selected"
+            />
+            <img src="./icons/Fighter.png" alt="Fighter04" class="Selected" />
+            <img src="./icons/Paladin.png" alt="Paladin05" class="Selected" />
+            <img
+              src="./icons/SacredFist.png"
+              alt="Sacred Fist05"
+              class="Selected"
+            />
+            <img src="./icons/Ranger.png" alt="Ranger06" class="Selected" />
+            <img
+              src="./icons/DarkHunter.png"
+              alt="Dark Hunter06"
+              class="Selected"
+            />
+            <img src="./icons/Rogue.png" alt="Rogue07" class="Selected" />
+            <img src="./icons/Sorcerer.png" alt="Sorcerer08" class="Selected" />
+            <img src="./icons/Wizard.png" alt="Wizard09" class="Selected" />
+            <img src="./icons/Druid.png" alt="Druid10" class="Selected" />
+            <img
+              src="./icons/BlightCaster.png"
+              alt="Blight Caster10"
+              class="Selected"
+            />
+            <img src="./icons/Monk.png" alt="Monk11" class="Selected" />
+            <img src="./icons/Warlock.png" alt="Warlock12" class="Selected" />
+            <img
+              src="./icons/AcolyteOfTheSkin.png"
+              alt="Acolyte Of The Skin12"
+              class="Selected"
+            />
+          </div>
+          <div class="Prem">
+            <img
+              src="./icons/Alchemist.png"
+              alt="Alchemist13"
+              class="Selected"
+            />
+            <img
+              src="./icons/Artificer.png"
+              alt="Artificer14"
+              class="Selected"
+            />
+            <img
+              src="./icons/FavoredSoul.png"
+              alt="Favored Soul15"
+              class="Selected"
+            />
+          </div>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <th>
+            <p>
+              Select the main class min. level (7-20):
+              <input
+                type="text"
+                id="min_level"
+                name="min_level"
+                value="7"
+                onchange="checkNum(name)"
+              />
+              <th>
+                <p>Select the number of classes enabled</p>
+                <p>
+                  It's the first check, so equal chance for each!
+                  <tr>
+                    <th>
+                      <p>
+                        Select the main class max. level (7-20):
+                        <input
+                          type="text"
+                          id="max_level"
+                          name="max_level"
+                          value="20"
+                          onchange="checkNum(name)"
+                        />
+                        <th>
+                          <div class="buttons" id="level-opts">
+                            <button
+                              class="Selected"
+                              name="bodybutton"
+                              id="regbutton"
+                            >
+                              1
+                            </button>
+                            <button
+                              class="Selected"
+                              name="bodybutton"
+                              id="regbutton"
+                            >
+                              2
+                            </button>
+                            <button
+                              class="Selected"
+                              name="bodybutton"
+                              id="regbutton"
+                            >
+                              3
+                            </button>
+                          </div>
+                        </th>
+                      </p>
+                    </th>
+                  </tr>
+                </p>
+              </th>
+            </p>
+          </th>
+        </tr>
+      </table>
 
-			<div class="buttons">
-				<button class="first" name="bodybutton" id="regbutton" onclick="ddoRandomizer()">RANDOMIZE!</button>
-				<button class="last" name="bodybutton" id="regbutton" onclick="clearer()">Clear results.</button>
-			</div>
-			<h3>Results here.</h3>
-		</div>
-		<div id="results">
-			<table id="rand_finished">
-				<tr>
-					<th class="table_top">Race</th>
-					<th class="table_top">Class 1</th>
-					<th class="table_top">Class 2</th>
-					<th class="table_top">Class 3</th>
-				</tr>
-			</table>
-		</div>
-		<div id="bot-part">
-			<br /><br />
-			<p>
-				Randomizer made by Goroshi.<br />
-				Updated by Minileth on Cannith for U56<br />
-				Feel welcome to change and do your own too.<br />
-				All the source is available on github.
-			</p>
-		</div>
-	</body>
+      <div class="buttons">
+        <button
+          class="first"
+          name="bodybutton"
+          id="regbutton"
+          onclick="ddoRandomizer()"
+        >
+          RANDOMIZE!
+        </button>
+        <button
+          class="last"
+          name="bodybutton"
+          id="regbutton"
+          onclick="clearer()"
+        >
+          Clear results.
+        </button>
+      </div>
+      <h3>Results here.</h3>
+    </div>
+    <div id="results">
+      <table id="rand_finished">
+        <tr>
+          <th class="table_top">Race</th>
+          <th class="table_top">Class 1</th>
+          <th class="table_top">Class 2</th>
+          <th class="table_top">Class 3</th>
+        </tr>
+      </table>
+    </div>
+    <div id="bot-part">
+      <br /><br />
+      <p>
+        Randomizer made by Goroshi.<br />
+        Updated by Minileth on Cannith for U56<br />
+        Feel welcome to change and do your own too.<br />
+        All the source is available on github.
+      </p>
+    </div>
+  </body>
 </html>
