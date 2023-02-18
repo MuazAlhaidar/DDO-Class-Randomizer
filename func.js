@@ -153,7 +153,15 @@ function get_new_class_list(randomized_choices, class_list) {
     class_list = class_list.filter(function (element) {
       // remove the class from the class list so long as
       // it's name is in the xor class name array
-      return !(element.key in xorArray);
+      isAllowed = true;
+      xorArray.forEach((xorElement) => {
+        if (element.key === xorElement) {
+          isAllowed = false;
+          return;
+        }
+      });
+      return isAllowed;
+      //  return !(element.key in xorArray);
     });
 
     return class_list;
@@ -166,6 +174,7 @@ function get_new_class_list(randomized_choices, class_list) {
         class_list = xorClassesDueToAlignment(class_list, [
           "Barbarian",
           "Bard",
+          "Storm Singer",
           "Druid",
           "Blightcaster",
           "Acolyte Of The Skin",
@@ -176,6 +185,7 @@ function get_new_class_list(randomized_choices, class_list) {
         class_list = xorClassesDueToAlignment(class_list, [
           "Barbarian",
           "Bard",
+          "Storm Singer",
         ]);
         break;
       // If a Barbarian or Bard
@@ -190,7 +200,7 @@ function get_new_class_list(randomized_choices, class_list) {
       // If a Druid or Acolyte Of The Skin
       case 10:
       case 12:
-        if (element.key === "Acolyte Of The Skin") {
+        if (element.key == "Acolyte Of The Skin") {
           class_list = xorClassesDueToAlignment(class_list, [
             "Paladin",
             "Sacred Fist",
@@ -216,6 +226,10 @@ function get_new_class_list(randomized_choices, class_list) {
     });
     return result;
   });
+
+  console.log(randomized_choices);
+  console.log(class_list);
+
   return class_list;
 }
 function sel_levels(number) {
