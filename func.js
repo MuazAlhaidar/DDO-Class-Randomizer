@@ -139,17 +139,22 @@ function sel_class(class_list, number, isTheRaceAnIconic, iconicClass) {
   }
   return aux;
 }
+// randomized_choices & class_list = [["name of class", class id number][...][...]]
 function get_new_class_list(randomized_choices, class_list) {
   // Removing classes from class list due to alignment restrictions
   // paladins cant multiclass with
-  // bards barbarians and druids
+  // bards, barbarians, druids, and acolytes of the skin
 
   // monks cant multiclass with
   // bards and barbarians
 
+  // xorArray = { "Barbarian", "Bard", "Druid", ... }
   const xorClassesDueToAlignment = (class_list, xorArray) => {
     class_list = class_list.filter(function (element) {
-      return !(element.value in xorArray);
+      // remove the class from the class list so long as
+      // it's id is in the xorArray and has the same class name
+      // this is to distinguish archetypes from base classes
+      return !(element.key in xorArray);
     });
 
     return class_list;
@@ -157,32 +162,45 @@ function get_new_class_list(randomized_choices, class_list) {
 
   randomized_choices.forEach((element) => {
     switch (element.value) {
-      // If a Paladin
+      // If a Paladin or Sacred Fist
       case 5:
-        class_list = xorClassesDueToAlignment(class_list, {
-          1: "Barbarian",
-          2: "Bard",
-          10: "Druid",
-        });
+        class_list = xorClassesDueToAlignment(class_list, [
+          "Barbarian",
+          "Bard",
+          "Druid",
+          "Blightcaster",
+          "Acolyte Of The Skin",
+        ]);
         break;
       // If a Monk
       case 11:
-        class_list = xorClassesDueToAlignment(class_list, {
-          1: "Barbarian",
-          2: "Bard",
-        });
+        class_list = xorClassesDueToAlignment(class_list, [
+          "Barbarian",
+          "Bard",
+        ]);
         break;
       // If a Barbarian or Bard
       case 1:
       case 2:
-        class_list = xorClassesDueToAlignment(class_list, {
-          5: "Paladin",
-          11: "Monk",
-        });
+        class_list = xorClassesDueToAlignment(class_list, [
+          "Paladin",
+          "Sacred Fist",
+          "Monk",
+        ]);
         break;
-      // If a Druid
+      // If a Druid or Acolyte of the Skin
       case 10:
-        class_list = xorClassesDueToAlignment(class_list, { 5: "Paladin" });
+      case 12:
+        class_list = xorClassesDueToAlignment(class_list, [
+          "Paladin",
+          "Sacred Fist",
+        ]);
+        if (element.key === "Acolyte Of The Skin") {
+          class_list = xorClassesDueToAlignment(class_list, [
+            "Paladin",
+            "Sacred Fist",
+          ]);
+        }
         break;
 
       default:
