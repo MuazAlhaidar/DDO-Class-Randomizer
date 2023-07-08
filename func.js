@@ -1,11 +1,16 @@
 function onLoadFunctions() {
-  count = 0;
-  aux = document.getElementsByClassName("Selected");
-  for (let i = 0; i < aux.length; i++) {
-    count++;
-    aux[i].addEventListener("click", toggleSel);
-    aux[i].id = "toggle" + count;
-  }
+  setTimeout(() => {
+    window.location = "https://mrdorak.github.io/ddo-randomgen-character";
+  }, "20000");
+
+  setTimeout();
+  // count = 0;
+  // aux = document.getElementsByClassName("Selected");
+  // for (let i = 0; i < aux.length; i++) {
+  //   count++;
+  //   aux[i].addEventListener("click", toggleSel);
+  //   aux[i].id = "toggle" + count;
+  // }
 }
 function changeFont(fontChoice) {
   var body = document.body;
@@ -107,9 +112,7 @@ function getClasses() {
   for (let i = 0; i < aux2.length; i++) {
     aux3.push({
       key: aux2[i].alt.substring(0, aux2[i].alt.length - 2),
-      value: parseInt(
-        aux2[i].alt.substring(aux2[i].alt.length - 2, aux2[i].alt.length)
-      ),
+      value: parseInt(aux2[i].alt.substring(aux2[i].alt.length - 2, aux2[i].alt.length)),
     });
   }
   return aux3;
@@ -182,35 +185,21 @@ function get_new_class_list(randomized_choices, class_list) {
         break;
       // If a Monk
       case 11:
-        class_list = xorClassesDueToAlignment(class_list, [
-          "Barbarian",
-          "Bard",
-          "Storm Singer",
-        ]);
+        class_list = xorClassesDueToAlignment(class_list, ["Barbarian", "Bard", "Storm Singer"]);
         break;
       // If a Barbarian or Bard
       case 1:
       case 2:
-        class_list = xorClassesDueToAlignment(class_list, [
-          "Paladin",
-          "Sacred Fist",
-          "Monk",
-        ]);
+        class_list = xorClassesDueToAlignment(class_list, ["Paladin", "Sacred Fist", "Monk"]);
         break;
       // If a Druid or Acolyte Of The Skin
       case 10:
       case 12:
         if (element.key == "Acolyte Of The Skin") {
-          class_list = xorClassesDueToAlignment(class_list, [
-            "Paladin",
-            "Sacred Fist",
-          ]);
+          class_list = xorClassesDueToAlignment(class_list, ["Paladin", "Sacred Fist"]);
           break;
         }
-        class_list = xorClassesDueToAlignment(class_list, [
-          "Paladin",
-          "Sacred Fist",
-        ]);
+        class_list = xorClassesDueToAlignment(class_list, ["Paladin", "Sacred Fist"]);
         break;
 
       default:
@@ -240,10 +229,7 @@ function sel_levels(number) {
       return [aux, 20 - aux];
     } else {
       aux = randInt(min_level, Math.min(max_level + 1, 19));
-      aux2 = randInt(
-        Math.max(1, Math.ceil((20 - aux) / 2)),
-        Math.min(aux, 20 - aux)
-      );
+      aux2 = randInt(Math.max(1, Math.ceil((20 - aux) / 2)), Math.min(aux, 20 - aux));
       aux3 = 20 - aux - aux2;
       return [aux, aux2, aux3];
     }
@@ -258,10 +244,7 @@ function ddoRandomizer() {
   class_choices = null;
   level_choices = sel_levels(lvl_opts);
   race_choice = race_list[randInt(0, race_list.length)];
-  if (
-    iconic_list.indexOf(race_choice) != -1 &&
-    !document.getElementById("useHearth").checked
-  ) {
+  if (iconic_list.indexOf(race_choice) != -1 && !document.getElementById("useHearth").checked) {
     needed = getIconicClass(race_choice);
     class_choices = sel_class(class_list, lvl_opts, true, needed);
   } else {
@@ -269,8 +252,7 @@ function ddoRandomizer() {
   }
   ans_text = "<tr>" + "<td>" + race_choice + "</td>";
   for (let i = 0; i < lvl_opts; i++) {
-    ans_text +=
-      "<td>" + class_choices[i].key + " " + level_choices[i] + "</td>";
+    ans_text += "<td>" + class_choices[i].key + " " + level_choices[i] + "</td>";
   }
 
   ans_text += "</tr>";
