@@ -1,3 +1,23 @@
+body {
+  display: flex;
+  color: #ccb554;
+  background-color: black;
+  font-family: Lexend;
+  align-content: center;
+  justify-content: center;
+  padding-top: 10em;
+}
+#informationPanel {
+  /* display: flex;
+  flex-direction: column; */
+  border: 3px dashed #ccb554;
+  max-width: 500px;
+  min-height: 60px;
+  padding: 2em;
+  vertical-align: middle;
+  text-align: left;
+  align-self: center;
+}
 @font-face {
   font-family: Lexend;
   /*
@@ -20,14 +40,6 @@
 }
 #village-font {
   font-family: Village;
-}
-body {
-  max-width: 900px;
-  width: 100%;
-  overflow-x: hidden;
-  color: #ccb554;
-  background-color: black;
-  font-family: Lexend;
 }
 body.village {
   max-width: 900px;
