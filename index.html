@@ -252,7 +252,7 @@
       </div>
       <table>
         <tr>
-          <th>
+          <td>
             <p>
               Select the main class min. level (7-20):
               <input
@@ -262,56 +262,53 @@
                 value="7"
                 onchange="checkNum(name)"
               />
-              <th>
-                <p>Select the number of classes enabled</p>
-                <p>
-                  It's the first check, so equal chance for each!
-                  <tr>
-                    <th>
-                      <p>
-                        Select the main class max. level (7-20):
-                        <input
-                          type="text"
-                          id="max_level"
-                          name="max_level"
-                          value="20"
-                          onchange="checkNum(name)"
-                        />
-                        <th>
-                          <div class="buttons" id="level-opts">
-                            <button
-                              class="Selected"
-                              name="bodybutton"
-                              id="regbutton"
-                            >
-                              1
-                            </button>
-                            <button
-                              class="Selected"
-                              name="bodybutton"
-                              id="regbutton"
-                            >
-                              2
-                            </button>
-                            <button
-                              class="Selected"
-                              name="bodybutton"
-                              id="regbutton"
-                            >
-                              3
-                            </button>
-                          </div>
-                        </th>
-                      </p>
-                    </th>
-                  </tr>
-                </p>
-              </th>
             </p>
-          </th>
+          </td>
+          <td>
+            <p>Select the number of classes enabled</p>
+            <p>It's the first check, so equal chance for each!</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              Select the main class max. level (7-20):
+              <input
+                type="text"
+                id="max_level"
+                name="max_level"
+                value="20"
+                onchange="checkNum(name)"
+              />
+            </p>
+          </td>
+          <td>
+            <div class="buttons" id="level-opts">
+              <button class="Selected" name="bodybutton" id="regbutton">
+                1
+              </button>
+              <button class="Selected" name="bodybutton" id="regbutton">
+                2
+              </button>
+              <button class="Selected" name="bodybutton" id="regbutton">
+                3
+              </button>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <form>
+              Force a single Class selection:
+              <select id="dropdownForceClass">
+                <option value="1" selected="selected">None</option>
+                <option value="2">test2</option>
+                <option value="3">test3</option>
+              </select>
+            </form>
+          </td>
         </tr>
       </table>
-
       <div class="buttons">
         <button
           class="first"
