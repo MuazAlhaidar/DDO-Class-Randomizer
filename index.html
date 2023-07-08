@@ -9,15 +9,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script async src="func.js"></script>
   </head>
-  <script>
-    window.addEventListener("load", (event) =>
-      setTimeout(
-        () => (window.location = "https://mrdorak.github.io/ddo-randomgen-character"),
-        "20000"
-      )
-    );
-  </script>
-  <body>
+  <body onload="onLoadFunctions()">
     <div id="informationPanel">
       <p>Hello, This DDO Randomizer is no longer available.</p>
       <p>It has been replaced by a much better Randomizer at the following link:</p>
@@ -27,7 +19,15 @@
         >
       </p>
       <br />
-      <p>Redirecting you in 20 seconds....</p>
+      <p>Redirecting you in <span id="time">20</span> seconds....</p>
     </div>
   </body>
+  <script>
+    window.addEventListener("load", (event) =>
+      setTimeout(
+        () => (window.location = "https://mrdorak.github.io/ddo-randomgen-character"),
+        "21000"
+      )
+    );
+  </script>
 </html>
